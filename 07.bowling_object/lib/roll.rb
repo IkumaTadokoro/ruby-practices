@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Shot
+class Roll
   attr_reader :mark
 
   def initialize(mark)

@@ -24,6 +24,6 @@ class Game
   def build_frames
     Array.new(FRAME_SIZE - 1) { marks[0] == 'X' ? marks.shift(1) : marks.shift(2) }
          .concat([marks])
-         .map { |shot1, shot2, shot3| Frame.new(shot1, shot2, shot3) }
+         .map { |roll1, roll2, roll3| Frame.new(roll1, roll2, roll3) }
   end
 end

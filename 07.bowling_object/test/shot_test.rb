@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 require 'minitest/autorun'
-require_relative '../lib/shot'
+require_relative '../lib/roll'
 
-class ShotTest < Minitest::Test
+class RollTest < Minitest::Test
   def test_score_not_strike
-    shot = Shot.new('9')
-    assert_equal 9, shot.score
+    roll = Roll.new('9')
+    assert_equal 9, roll.score
   end
 
   def test_score_strike
-    shot = Shot.new('X')
-    assert_equal 10, shot.score
+    roll = Roll.new('X')
+    assert_equal 10, roll.score
   end
 end

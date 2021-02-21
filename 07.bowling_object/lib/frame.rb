@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative './roll'
+require_relative 'roll'
 
 class Frame
   NUMBER_OF_PINS = 10

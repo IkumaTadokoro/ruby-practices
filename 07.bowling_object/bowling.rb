@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require_relative './lib/game'
+require_relative 'lib/game'
 
 if __FILE__ == $PROGRAM_NAME
   game = Game.new(ARGV[0])

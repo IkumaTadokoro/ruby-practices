@@ -6,16 +6,16 @@ class Frame
   NUMBER_OF_PINS = 10
   NO_BONUS = 0
 
-  attr_reader :roll1, :roll2, :roll3
+  attr_reader :score_of_roll1, :score_of_roll2, :score_of_roll3
 
   def initialize(mark1, mark2 = nil, mark3 = nil)
-    @roll1 = Roll.new(mark1).score
-    @roll2 = Roll.new(mark2).score
-    @roll3 = Roll.new(mark3).score
+    @score_of_roll1 = Roll.new(mark1).score
+    @score_of_roll2 = Roll.new(mark2).score
+    @score_of_roll3 = Roll.new(mark3).score
   end
 
   def score
-    roll1 + roll2 + roll3
+    score_of_roll1 + score_of_roll2 + score_of_roll3
   end
 
   def bonus_score(next_frame, after_next_frame)
@@ -26,24 +26,24 @@ class Frame
   end
 
   def strike?
-    roll1 == NUMBER_OF_PINS
+    score_of_roll1 == NUMBER_OF_PINS
   end
 
   def spare?
-    !strike? && roll1 + roll2 == NUMBER_OF_PINS
+    !strike? && score_of_roll1 + score_of_roll2 == NUMBER_OF_PINS
   end
 
   private
 
   def spare_bonus(next_frame)
-    next_frame.roll1
+    next_frame.score_of_roll1
   end
 
   def strike_bonus(next_frame, after_next_frame)
     if next_frame.strike? && !after_next_frame.nil?
-      next_frame.roll1 + after_next_frame.roll1
+      next_frame.score_of_roll1 + after_next_frame.score_of_roll1
     else
-      next_frame.roll1 + next_frame.roll2
+      next_frame.score_of_roll1 + next_frame.score_of_roll2
     end
   end
 end

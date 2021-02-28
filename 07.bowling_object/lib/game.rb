@@ -5,8 +5,6 @@ require_relative 'frame'
 class Game
   FRAME_SIZE = 10
 
-  attr_reader :marks
-
   def initialize(marks)
     @marks = marks.split(',')
   end
@@ -22,8 +20,8 @@ class Game
   private
 
   def build_frames
-    Array.new(FRAME_SIZE - 1) { marks[0] == 'X' ? marks.shift(1) : marks.shift(2) }
-         .concat([marks])
+    Array.new(FRAME_SIZE - 1) { @marks[0] == 'X' ? @marks.shift(1) : @marks.shift(2) }
+         .concat([@marks])
          .map { |mark1, mark2, mark3| Frame.new(mark1, mark2, mark3) }
   end
 end

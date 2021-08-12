@@ -31,7 +31,8 @@ module Ls
           format_item(file, :l, :owner_name, file.owner_name.length + 1),
           format_item(file, :r, :group_name, 0),
           format_item(file, :r, :byte_size, @file_list.max_size_length + 1),
-          format_item(file, :r, :timestamp, 0),
+          format_item(file, :r, :edited_month_date, 0),
+          format_item(file, :r, :edited_year, @file_list.max_edited_year_length),
           format_item(file, :r, :basename, 0)
         ]
       end

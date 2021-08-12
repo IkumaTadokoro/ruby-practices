@@ -3,6 +3,7 @@
 module Ls
   class File
     require 'etc'
+    require 'date'
 
     OCTAL = 8
     BINARY = 2
@@ -24,7 +25,12 @@ module Ls
 
     def byte_size = stat.size.to_s
 
-    def timestamp = stat.mtime.strftime(' %-m %d %H:%M')
+    def edited_month_date = stat.mtime.strftime('%b %e')
+
+    def edited_year
+      edited_at = stat.mtime
+      edited_at_six_months_ago?(edited_at) ? edited_at.strftime('%Y') : edited_at.strftime('%H:%M')
+    end
 
     def basename = ::File.basename(@name)
 
@@ -48,6 +54,10 @@ module Ls
         execute = (binary[2] == '1' ? 'x' : '-')
         read + write + execute
       end
+    end
+
+    def edited_at_six_months_ago?(time)
+      (Date.today << 6 <=> Date.parse(time.to_s)) == 1
     end
   end
 end

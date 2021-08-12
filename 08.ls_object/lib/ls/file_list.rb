@@ -21,6 +21,8 @@ module Ls
 
     def max_file_name_length = files.compact.map(&:basename).max_by(&:length).length
 
+    def max_edited_year_length = files.map(&:edited_year).max_by(&:length).length
+
     private
 
     def file_names

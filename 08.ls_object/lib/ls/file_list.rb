@@ -27,7 +27,7 @@ module Ls
 
     def file_names
       patterns = args_is_file? ? @option.args : '*'
-      flags = @option.has?(:a) ? File::FNM_DOTMATCH : 0
+      flags = @option.has?(:a) ? ::File::FNM_DOTMATCH : 0
       base = args_is_directory? ? @option.args : nil
 
       files = Dir.glob(patterns, flags, base: base)

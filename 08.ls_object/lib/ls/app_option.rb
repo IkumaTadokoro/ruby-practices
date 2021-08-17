@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
+require 'optparse'
+
 module Ls
   class AppOption
-    require 'optparse'
 
     def initialize
       @options = {}

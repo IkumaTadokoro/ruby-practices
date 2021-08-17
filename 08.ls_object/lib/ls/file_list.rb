@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
+require_relative 'file'
+
 module Ls
   class FileList
-    require_relative 'file'
 
     attr_reader :files
 

@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
+require 'etc'
+require 'date'
+
 module Ls
   class File
-    require 'etc'
-    require 'date'
 
     OCTAL = 8
     BINARY = 2
